@@ -61,9 +61,9 @@ def rank_animals():
     global category_dicts, weights, animal_scores
     category_dicts = {
         "climb": climb, "swim": swim, "run": run, "fly": fly, "jump": jump, "crawl": crawl, "hide": hide, "hunt": hunt, "sleep": sleep, "communicate": communicate}
-    if len(Node) >= 3:
+    if len(Unique) >= 3:
         weights = {decidea: 1.0, decideb: 0.8, decidec: 0.6}
-    elif len(Node) == 2:
+    elif len(Unique) == 2:
         weights = {decidea: 1.0, decideb: 0.8}
     else:
         weights = {decidea: 1.0}
