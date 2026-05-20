@@ -1,0 +1,7 @@
+pick = {
+    "climbc": climb,
+    "swimc": swim,
+    "runc": run,
+}
+# 10 Similar words for each category in categories.py
+
