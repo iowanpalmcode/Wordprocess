@@ -12,7 +12,7 @@ Basetext = st.text_input("Give me a string of words relating to an animal: ").st
 Node = []
 for word in Basetext:
     cleaned_word = ''.join(filter(str.isalpha, word))
-    if cleaned_word:
+    if cleaned_word and cleaned_word in full or cleaned_word in negators:
         Node.append(cleaned_word)
 analyze = st.button("Analyze")
 raw = st.button("Raw Data")
@@ -24,17 +24,16 @@ for word in Node:
         continue
     if word in negators:
         skip = True
-    else:   
-        if word in full:
-            if full.index(word) < 30:
-                scores["climb" if word in climbsim else ("swim" if word in swimsim else "run")] += 1
+    else: 
+        if full.index(word) < 30:
+            scores["climb" if word in climbsim else ("swim" if word in swimsim else "run")] += 1
                     # I had to find that but don't worry that's my only pasted code. <--- This was from like 3 days ago. Ignore it.
-            elif 30 <= full.index(word) < 60: 
-                scores["run" if word in runsim else ("fly" if word in flysim else "jump")] += 1
-            elif 60 <= full.index(word) < 90:
-                scores["crawl" if word in crawlsim else ("hide" if word in hidesim else "hunt")] += 1
-            else:
-                scores["sleep" if word in sleepsim else "communicate"] += 1
+        elif 30 <= full.index(word) < 60: 
+            scores["run" if word in runsim else ("fly" if word in flysim else "jump")] += 1
+        elif 60 <= full.index(word) < 90:
+            scores["crawl" if word in crawlsim else ("hide" if word in hidesim else "hunt")] += 1
+        else:
+            scores["sleep" if word in sleepsim else "communicate"] += 1
 def decide():
     global decidea, decideb, decidec
     ranked_categories = sorted(scores, key=scores.get, reverse=True)
