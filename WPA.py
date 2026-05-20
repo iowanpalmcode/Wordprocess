@@ -28,7 +28,7 @@ for word in Node:
         if word in full:
             if full.index(word) < 30:
                 scores["climb" if word in climbsim else ("swim" if word in swimsim else "run")] += 1
-                    # I had to find that but don't worry that's my only pasted code.
+                    # I had to find that but don't worry that's my only pasted code. <--- This was from like 3 days ago. Ignore it.
             elif 30 <= full.index(word) < 60: 
                 scores["run" if word in runsim else ("fly" if word in flysim else "jump")] += 1
             elif 60 <= full.index(word) < 90:
