@@ -65,3 +65,4 @@ top_animals = rank_animals()
 if analyze and len(Node) > 0:
     st.write(decidea, decideb, decidec)
     st.write("Top 3 animals:", *top_animals)
+    st.balloons()
