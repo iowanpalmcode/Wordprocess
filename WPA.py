@@ -7,8 +7,15 @@ skip = False
 st.title("Word Processing Agent")
 st.write("A simple(ish) word processing agent that tries to guess what animal you're thinking of based on the words you give.")
 st.write("The current categories are: climb, swim, run, fly, jump, crawl, hide, hunt, sleep, communicate. Try to give words that relate to those categories and the animal you're thinking of. For example, if you're thinking of a monkey, you might say 'climb', 'jump', 'swing', etc.")
-Node = st.text_input("Give me a string of words relating to an animal: ").strip().lower().split()
+Basetext = st.text_input("Give me a string of words relating to an animal: ").strip().lower().split()
+# Remove any non alphabetic characters from the input
+Node = []
+for word in Basetext:
+    cleaned_word = ''.join(filter(str.isalpha, word))
+    if cleaned_word:
+        Node.append(cleaned_word)
 analyze = st.button("Analyze")
+raw = st.button("Raw Data")
 scores = {"climb": 0, "swim": 0, "run": 0, "fly": 0, "jump": 0, "crawl": 0, "hide": 0, "hunt": 0, "sleep": 0, "communicate": 0}
 # New idea
 for word in Node:
@@ -65,12 +72,13 @@ top_animals = rank_animals()
 if analyze and len(Node) > 0:
     st.write("The 3 most likely categories you could be thinking of are:",decidea, decideb, decidec)
     st.write("Top 3 animals in relation to the categories:", *top_animals)
+    if raw:
     # write top 3 most likely + all scores
-    st.write("Scores for each category:")
-    for category, score in scores.items():
-        st.write(f"- {category}: {score}")    # score for all animals as well
-    st.write("Animal Scores:")
-    for animal, score in animal_scores.items():
-        st.write(f"- {animal}: {score:.2f}")
-    st.write("Top 3 animals in relation to the categories:", *top_animals)
-    st.balloons()
+        st.write("Scores for each category:")
+        for category, score in scores.items():
+            st.write(f"- {category}: {score}")    # score for all animals as well
+        st.write("Animal Scores:")
+        for animal, score in animal_scores.items():
+            st.write(f"- {animal}: {score:.2f}")
+        st.write("Top 3 animals in relation to the categories:", *top_animals)
+        st.balloons()
