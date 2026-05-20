@@ -1,7 +1,7 @@
 from categories import climb, swim, run, fly, jump, crawl, hide, hunt, sleep, communicate
 
 """
-    # Obsolte pick = {
+    # Obs. pick = {
     "climbc": climb,
     "swimc": swim,
     "runc": run,

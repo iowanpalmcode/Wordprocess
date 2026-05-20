@@ -72,8 +72,7 @@ top_animals = rank_animals()
 if analyze and len(Node) > 0:
     st.write("The 3 most likely categories you could be thinking of are:",decidea, decideb, decidec)
     st.write("Top 3 animals in relation to the categories:", *top_animals)
-    if raw:
-    # write top 3 most likely + all scores
+if raw and len(Node) > 0:
         st.write("Scores for each category:")
         for category, score in scores.items():
             st.write(f"- {category}: {score}")    # score for all animals as well
