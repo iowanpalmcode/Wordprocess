@@ -35,7 +35,7 @@ run = {
     "fish":.04,
     "cat":.68,
     "dog":.74,
-    "bird": .8,
+    "bird": .08,
     "snake": .4,
     "rabbit": .9,
 }
