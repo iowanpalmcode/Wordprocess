@@ -25,15 +25,15 @@ for word in Node:
     if word in negators:
         skip = True
     else: 
-        if full.index(word) < 30:
-            scores["climb" if word in climbsim else ("swim" if word in swimsim else "run")] += 1
+        if full.index(word) < 33:
+            scores["fly" if word in flysim else ("run" if word in runsim else "swim")] += 1
                     # I had to find that but don't worry that's my only pasted code. <--- This was from like 3 days ago. Ignore it.
-        elif 30 <= full.index(word) < 60: 
-            scores["run" if word in runsim else ("fly" if word in flysim else "jump")] += 1
-        elif 60 <= full.index(word) < 90:
-            scores["crawl" if word in crawlsim else ("hide" if word in hidesim else "hunt")] += 1
+        elif 33 <= full.index(word) < 66: 
+            scores["climb" if word in climbsim else ("jump" if word in jumpsim else "crawl")] += 1
+        elif 66 <= full.index(word) < 99:
+            scores["hide" if word in hidesim else ("hunt" if word in huntsim else "sleep")] += 1
         else:
-            scores["sleep" if word in sleepsim else "communicate"] += 1
+            scores["communicate"] += 1
 def decide():
     global decidea, decideb, decidec
     ranked_categories = sorted(scores, key=scores.get, reverse=True)
