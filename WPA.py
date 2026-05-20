@@ -3,7 +3,6 @@ import streamlit as st
 from categories import climb, swim, run, fly, jump, crawl, hide, hunt, sleep, communicate
 from sim import flysim, runsim, swimsim, climbsim, jumpsim, crawlsim, hidesim, huntsim, sleepsim, communicatesim, negators
 full = flysim + runsim + swimsim + climbsim + jumpsim + crawlsim + hidesim + huntsim + sleepsim + communicatesim
-total = 0
 skip = False
 st.title("Word Processing Agent")
 st.write("A simple(ish) word processing agent that tries to guess what animal you're thinking of based on the words you give.")
@@ -38,6 +37,7 @@ def decide():
 
 
 def rank_animals():
+    global category_dicts, weights, animal_scores
     category_dicts = {
         "climb": climb,
         "swim": swim,
@@ -63,6 +63,14 @@ def rank_animals():
 decide()
 top_animals = rank_animals()
 if analyze and len(Node) > 0:
-    st.write(decidea, decideb, decidec)
-    st.write("Top 3 animals:", *top_animals)
+    st.write("The 3 most likely categories you could be thinking of are:",decidea, decideb, decidec)
+    st.write("Top 3 animals in relation to the categories:", *top_animals)
+    # write top 3 most likely + all scores
+    st.write("Scores for each category:")
+    for category, score in scores.items():
+        st.write(f"- {category}: {score}")    # score for all animals as well
+    st.write("Animal Scores:")
+    for animal, score in animal_scores.items():
+        st.write(f"- {animal}: {score:.2f}")
+    st.write("Top 3 animals in relation to the categories:", *top_animals)
     st.balloons()
