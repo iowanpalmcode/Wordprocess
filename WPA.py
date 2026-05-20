@@ -56,7 +56,12 @@ def rank_animals():
         "sleep": sleep,
         "communicate": communicate,
     }
-    weights = {decidea: 1.0, decideb: 0.8, decidec: 0.6}
+    if len(Node) >= 3:
+        weights = {decidea: 1.0, decideb: 0.8, decidec: 0.6}
+    elif len(Node) == 2:
+        weights = {decidea: 1.0, decideb: 0.8}
+    else:
+        weights = {decidea: 1.0}
     animal_scores = {}
 
     for category_name, weight in weights.items():
@@ -69,6 +74,10 @@ def rank_animals():
 decide()
 top_animals = rank_animals()
 if analyze and len(Node) > 0:
+    if len(Node) >= 3:
+        st.write("The amount of categories being taken note of in calculations are:", 3)
+    else:
+        st.write("The amount of categories being taken note of in calculations are:", len(Node))
     st.write("The 3 most likely categories you could be thinking of are:",decidea, decideb, decidec)
     st.write("Top 3 animals in relation to the categories:", *top_animals)
 if raw and len(Node) > 0:
@@ -80,3 +89,7 @@ if raw and len(Node) > 0:
             st.write(f"- {animal}: {score:.2f}")
         st.write("Top 3 animals in relation to the categories:", *top_animals)
         st.balloons()
+elif len(Basetext) == 0:
+    st.write("Please enter some words to analyze.")
+elif len(Node) == 0 and len(Basetext) != 0:
+    st.write("Please enter valid words that relate to the categories.")
