@@ -20,7 +20,7 @@ from categories import climb, swim, run, fly, jump, crawl, hide, hunt, sleep, co
 flysim = ["soar", "glide", "hover", "flit", "zoom", "drift", "swoop", "aviate", "sail", "wing", "fly"]
 runsim = ["sprint", "dash", "gallop", "jog", "scamper", "bolt", "race", "hasten", "speed", "scurry", "run"]
 swimsim = ["glide", "paddle", "stroke", "float", "dive", "submerge", "wade", "bodyboard", "breaststroke", "tread", "swim"]
-climbsim = ["scale", "mount", "ascend", "clamber", "scrabble", "climb", "shirker", "soar", "reach", "escalate", "climb"]
+climbsim = ["scale", "mount", "ascend", "clamber", "scrabble", "climb", "shirker", "soar", "reach", "escalate"]
 jumpsim = ["leap", "bound", "hop", "skip", "vault", "spring", "pounce", "hitch", "bhop", "launch", "jump"]
 crawlsim = ["crawl", "creep", "inch", "slither", "worm", "skulk", "grovel", "pad", "drag", "edge", "sneak"]
 hidesim = ["hide", "conceal", "camouflage", "cover", "bury", "shroud", "obscure", "mask", "screen", "shelter", "cache"]
