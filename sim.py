@@ -1,18 +1,5 @@
 from categories import climb, swim, run, fly, jump, crawl, hide, hunt, sleep, communicate
 
-"""
-    # Obs. pick = {
-    "climbc": climb,
-    "swimc": swim,
-    "runc": run,
-    "flyc": fly,
-    "jumpc": jump,
-    "crawlc": crawl,
-    "hidec": hide,
-    "huntc": hunt,
-    "sleepc": sleep,
-    "communicatec": communicate
-}"""
 # For ease, will just use 10 syn lists 
 # 10 dicitonaries for similar words for all 10 words in categories. py
 # Run, Swim, Climb, Fly, Jump, Crawl, Hide, Hunt, Sleep, Communicate
